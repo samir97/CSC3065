@@ -37,12 +37,15 @@ class SiteController extends Controller
 
         print("<h1>Results:</h1>");
         foreach ($sites as $site){
+            print("http://{$site->url}");
             print("<h2><a href='http://{$site->url}'>$site->content</a></h2>");
         }
     }
 
     public function add() {
         $token = request()->input('token');
+        if($token != "CSC3065") return;
+
         $url = request()->input('url');
         $content = request()->input('content');
 
